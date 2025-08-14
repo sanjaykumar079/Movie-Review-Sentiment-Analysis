@@ -13,43 +13,6 @@ The application is deployed using Streamlit for easy interaction.
 
 ⚡ Real-time predictions
 
-📂 Project Structure
-bash
-Copy
-Edit
-📦 imdb-sentiment-analysis
-├── main.py                # Streamlit app
-├── prediction.ipynb       # LSTM stock prediction notebook (other project)
-├── simplernn.ipynb        # RNN example notebook
-├── embedding.ipynb        # Word embeddings exploration
-├── simple_rnn_imdb.h5     # Pre-trained RNN model
-├── requirements.txt       # Project dependencies
-└── README.md              # Documentation
-🛠 Installation & Setup
-1️⃣ Clone the repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/imdb-sentiment-analysis.git
-cd imdb-sentiment-analysis
-2️⃣ Create a virtual environment (recommended)
-bash
-Copy
-Edit
-conda create --name imdb-env python=3.9
-conda activate imdb-env
-3️⃣ Install dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-🚀 Run the Web App
-bash
-Copy
-Edit
-streamlit run main.py
-Then open the provided localhost URL in your browser.
-
 🎯 How It Works
 IMDB Dataset Word Index is loaded from Keras.
 
