@@ -1,16 +1,27 @@
-import numpy as np
+import os
+import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.models import load_model
-import streamlit as st
+import traceback
 
-# Load the IMDB dataset word index
+# Verify model file exists
+model_path = 'simple_rnn_imdb.keras'
+if not os.path.exists(model_path):
+    st.error(f"Model file {model_path} not found in {os.getcwd()}")
+    raise FileNotFoundError(f"Model file {model_path} not found")
+
+# Load word index
 word_index = imdb.get_word_index()
 reverse_word_index = {value: key for key, value in word_index.items()}
 
-# Load the pre-trained model
-model = load_model('simple_rnn_imdb.keras')  # Updated to .keras
+# Load model with error handling
+try:
+    model = load_model(model_path)
+except Exception as e:
+    st.error(f"Error loading model: {str(e)}\n\nFull traceback: {traceback.format_exc()}")
+    raise
 
 # Helper functions
 def decode_review(encoded_review):
